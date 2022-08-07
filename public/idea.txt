@@ -1,0 +1,4 @@
+Project idea...
+
+Build a vscode extension that scans an html file for classnames and 
+ids and provides autocopletes in files likes css, scss, etc
