@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="index.js"></script>
     <title>Playground</title>
   </head>
   <body>
     <main>
       <div class="game--container">
+        <p class="player__turn"></p>
         <div class="canvas--container">
           <div class="grid-cell" data-value="0"></div>
           <div class="grid-cell" data-value="1"></div>
@@ -21,13 +23,15 @@
           <div class="grid-cell" data-value="7"></div>
           <div class="grid-cell" data-value="8"></div>
         </div>
-      
+
         <div class="controls--container">
-          <div>
-          </div>
+          <div class="scores__panel"></div>
           <div class="control--buttons">
             <button class="control--btns" id="reset__btn">Reset</button>
             <button class="control--btns" id="home__btn">Home</button>
+          </div>
+          <div class="game-over">
+            <p class="game-over-text"></p>
           </div>
         </div>
       </div>

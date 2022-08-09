@@ -28,13 +28,13 @@ main {
     min-width: 22rem;
 }
 
-.canvas--container{
+.canvas--container {
     display: grid;
     grid-template-columns: repeat(3, auto);
     background-color: white;
 }
 
-.grid-cell{
+.grid-cell {
     width: 100px;
     height: 100px;
     cursor: pointer;
@@ -43,9 +43,14 @@ main {
     align-items: center;
     justify-content: center;
     transition: all .3s;
+    font-size: 3rem;
 }
 
-.grid-cell:hover{
+.disabled {
+    cursor: not-allowed;
+}
+
+.grid-cell:not(.disabled):hover {
     transform: scale(1.03);
     background-color: rgb(231, 231, 231);
 }
@@ -78,8 +83,33 @@ main {
     transition: all .3s;
 }
 
-.control--btns:hover{
+.control--buttons {
+    display: flex;
+    gap: 2rem;
+}
+
+.control--btns:hover {
     background-color: #2b3485;
     color: white;
     border: 1px solid white;
+}
+
+.x::after {
+    content: '❌';
+}
+
+.o::after {
+    content: '⭕';
+}
+
+.player__turn {
+    font-family: Raleway;
+    color: black;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.controls--container{
+    display: flex;
+    flex-direction: column;
 }
