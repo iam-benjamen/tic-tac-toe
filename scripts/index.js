@@ -21,20 +21,21 @@ class NormalGame {
     ["2", "4", "6"],
   ];
 
+  container = document.querySelector(".canvas--container");
+
   constructor() {
     //activating cell on click
+    this.activateCell();
 
     //reset button
     document
       .querySelector("#reset__btn")
       .addEventListener("click", this.resetGame.bind(this));
-
-    //Players turn
   }
 
   //Activate cell onClick
   activateCell() {
-    document.addEventListener("click", (e) => {
+    this.container.addEventListener("click", (e) => {
       const target = e.target;
       const isCell = target.classList.contains("grid-cell");
       const isDisabled = target.classList.contains("disabled");
@@ -54,6 +55,7 @@ class NormalGame {
           ? `X's turn...`
           : `O's turn...`;
 
+        //check for win or draw
         this.checkDraw();
         this.checkWin();
       }
@@ -63,8 +65,8 @@ class NormalGame {
   //Check for draws
   checkDraw() {
     if (!document.querySelectorAll(".grid-cell:not(.disabled)").length) {
-      // document.querySelector(".game-over").classList.add("visible");
-      document.querySelector(".game-over-text").textContent = "Draw!";
+      document.querySelector(".game-over").classList.add("visible");
+      document.querySelector(".game-over-text").textContent = "DRAW😞";
     }
   }
 
@@ -78,15 +80,23 @@ class NormalGame {
         document
           .querySelectorAll(".grid-cell")
           .forEach((cell) => cell.classList.add("disabled"));
-        // document.querySelector(".game-over").classList.add("visible");
+   
+        //Display Winner
+        document.querySelector(".game-over").classList.add("visible");
         document.querySelector(".game-over-text").textContent = xWins
-          ? "X wins!"
-          : "O wins";
-      }
+          ? "X wins😋"
+          : "O wins😋";
 
-      if (xWins) this.xScore++;
-      if (oWins) this.oScore++;
+        //update score panel
+        if (xWins) ++this.xScore;
+        if (oWins) ++this.oScore;
+        console.log(this.oScore, this.xScore);
+      }
     });
+
+    //Players score
+    document.querySelector(".x_score").textContent = `X:${this.xScore}`;
+    document.querySelector(".o_score").textContent = `O:${this.oScore}`;
   }
 
   //reset game
@@ -103,5 +113,3 @@ class NormalGame {
 }
 
 const game = new NormalGame();
-
-game.activateCell();

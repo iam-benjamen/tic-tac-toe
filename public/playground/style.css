@@ -79,7 +79,7 @@ main {
     font-family: 'Raleway', sans-serif;
     box-shadow: #666eb9 0px 0px 2px, #864d4d 0px 0px 2px 1px;
     cursor: pointer;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     transition: all .3s;
 }
 
@@ -109,7 +109,36 @@ main {
     font-size: 1.5rem;
 }
 
-.controls--container{
+.controls--container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 1rem
+}
+
+.game-over {
+    display: none;
+}
+
+.game-over-text{
+    color: black;
+    font-family: 'Raleway';
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.visible {
+    display: flex;
+}
+
+.scores__panel p{
+    color: black;
+}
+
+.scores__panel{
+    display: flex;
+    gap: 2rem;
+    font-size: 2rem;
+    padding-top: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
